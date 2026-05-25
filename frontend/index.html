@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livraria Digital</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <h1>📚 Livraria Digital</h1>
+            </div>
+            <nav>
+                <a href="#catalogo">Catálogo</a>
+                <a href="#" onclick="mostrarSecao('catalogo')">Início</a>
+                <a href="#" onclick="mostrarSecao('admin')">Admin</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="busca">
+        <div class="busca-container">
+            <input type="text" id="campoBusca" placeholder="Buscar livros por título...">
+            <button onclick="buscarLivros()">Buscar</button>
+            <select id="filtroCategoria" onchange="filtrarCategoria()">
+                <option value="">Todas as categorias</option>
+                <option value="Ficção">Ficção</option>
+                <option value="Romance">Romance</option>
+                <option value="Tecnologia">Tecnologia</option>
+                <option value="Ciências">Ciências</option>
+                <option value="História">História</option>
+                <option value="Autoajuda">Autoajuda</option>
+            </select>
+        </div>
+    </section>
+
+    <section id="catalogo" class="secao ativa">
+        <div class="container">
+            <h2>Nosso Catálogo</h2>
+            <div id="listaLivros" class="grid-livros">
+                <p class="carregando">Carregando livros...</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="admin" class="secao">
+        <div class="container">
+            <h2>Painel Administrativo</h2>
+            <div class="form-card">
+                <h3 id="tituloForm">Adicionar Novo Livro</h3>
+                <input type="hidden" id="livroId">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label>Título</label>
+                        <input type="text" id="titulo" placeholder="Título do livro">
+                    </div>
+                    <div class="form-group">
+                        <label>Autor</label>
+                        <input type="text" id="autor" placeholder="Nome do autor">
+                    </div>
+                    <div class="form-group">
+                        <label>Categoria</label>
+                        <select id="categoria">
+                            <option value="Ficção">Ficção</option>
+                            <option value="Romance">Romance</option>
+                            <option value="Tecnologia">Tecnologia</option>
+                            <option value="Ciências">Ciências</option>
+                            <option value="História">História</option>
+                            <option value="Autoajuda">Autoajuda</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Preço (R$)</label>
+                        <input type="number" id="preco" placeholder="0.00" step="0.01">
+                    </div>
+                    <div class="form-group">
+                        <label>Estoque</label>
+                        <input type="number" id="estoque" placeholder="0">
+                    </div>
+                    <div class="form-group">
+                        <label>URL da Imagem</label>
+                        <input type="text" id="imagemUrl" placeholder="https://...">
+                    </div>
+                    <div class="form-group full-width">
+                        <label>Descrição</label>
+                        <textarea id="descricao" placeholder="Descrição do livro..."></textarea>
+                    </div>
+                </div>
+                <div class="form-botoes">
+                    <button class="btn-salvar" onclick="salvarLivro()">Salvar Livro</button>
+                    <button class="btn-cancelar" onclick="limparForm()">Cancelar</button>
+                </div>
+            </div>
+            <h3>Livros Cadastrados</h3>
+            <div id="listaAdmin" class="tabela-container">
+                <p class="carregando">Carregando...</p>
+            </div>
+        </div>
+    </section>
+
+    <div id="modal" class="modal">
+        <div class="modal-conteudo">
+            <span class="fechar" onclick="fecharModal()">&times;</span>
+            <div id="modalCorpo"></div>
+        </div>
+    </div>
+
+    <footer>
+        <p>© 2026 Livraria Digital — Todos os direitos reservados</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>
