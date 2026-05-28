@@ -51,18 +51,7 @@ Sistema de e-commerce de livros desenvolvido como Projeto Integrador da discipli
 
 ## 🗄️ Diagrama do Banco de Dados
 
-Tabela: livros
-
-| Campo | Tipo | Descrição |
-|---|---|---|
-| id | BIGINT (PK) | Identificador único |
-| titulo | VARCHAR(255) | Título do livro |
-| autor | VARCHAR(255) | Nome do autor |
-| categoria | VARCHAR(255) | Categoria do livro |
-| preco | DOUBLE | Preço do livro |
-| estoque | INTEGER | Quantidade em estoque |
-| descricao | VARCHAR(255) | Descrição do livro |
-| imagem_url | VARCHAR(255) | URL da imagem de capa |
+![MER Livraria Digital](mer_livraria_final.svg)
 
 ## 🔗 Rotas da API
 
